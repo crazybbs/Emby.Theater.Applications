@@ -1,0 +1,19 @@
+{
+    "Add": "Dodaj",
+    "Save": "Zapisz",
+    "Video": "Wideo",
+    "Game": "Gra",
+    "MediaType": "Typ medi\u00f3w",
+    "ExternalPlayers": "Odtwarzacze zewn\u0119trzne",
+    "ExternalPlayer": "Odtwarzacz zewn\u0119trzny",
+    "PlayerPath": "\u015acie\u017cka odtwarzacza",
+    "ArgumentsHelp": "Umie\u015b\u0107 ka\u017cdy z argument\u00f3w w oddzielnej linii",
+    "TokenPath": "{path} = \u015bcie\u017cka do pliku multimedialnego",
+    "EnableFor": "W\u0142\u0105cz dla:",
+    "VideoFiles": "Pliki wideo",
+    "InternetStreams": "Strumienie internetowe",
+    "CommandLineArguments": "Argumenty linii komend",
+    "TokenStartPosMs": "{ms} = pozycja startowa (ms)",
+    "AdditionalFilters": "Dodatkowe filtry:",
+    "GameSystem": "Systemy gier:"
+}

@@ -1,0 +1,22 @@
+{
+    "Add": "Ajouter",
+    "Save": "Sauvegarder",
+    "Video": "Vid\u00e9o",
+    "Game": "Jeux",
+    "MediaType": "Type de m\u00e9dia",
+    "ExternalPlayers": "Lecteurs externes",
+    "ExternalPlayer": "Lecteur externe",
+    "PlayerPath": "Chemin du lecteur",
+    "ArgumentsHelp": "Placer chaque argument sur une ligne s\u00e9par\u00e9e",
+    "TokenPath": "{path} = chemin vers le fichier du m\u00e9dia",
+    "EnableFor": "Activer pour:",
+    "VideoFiles": "Fichiers vid\u00e9os",
+    "InternetStreams": "Flux internet",
+    "CommandLineArguments": "Arguments de la ligne de commande",
+    "TokenStartPosMs": "{ms} = position de d\u00e9part ms",
+    "AdditionalFilters": "Filtres additionnels",
+    "GameSystem": "Plateforme de jeu:",
+    "WindowsGame": "Titre du jeu:",
+    "DosGame": "Titre du jeu:"
+}
+}

@@ -1,0 +1,19 @@
+{
+    "Add": "Hinzuf\u00fcgen",
+    "Save": "Sichern",
+    "Video": "Video",
+    "Game": "Game",
+    "MediaType": "Media typ",
+    "ExternalPlayers": "Externer Player",
+    "ExternalPlayer": "Externer Player",
+    "PlayerPath": "Player Pfad",
+    "ArgumentsHelp": "Bitte platziere jedes Argument in einer eigenen Zeile.",
+    "TokenPath": "{path} = Pfad zur Medien Datei",
+    "EnableFor": "Aktiviert f\u00fcr:",
+    "VideoFiles": "Video Dateien",
+    "InternetStreams": "Internet Streams",
+    "CommandLineArguments": "Kommandozeilen Argumente",
+    "TokenStartPosMs": "{ms} = start position in ms",
+    "AdditionalFilters": "Additional filters:",
+    "GameSystem": "Game system:"
+}
