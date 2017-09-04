@@ -17,6 +17,68 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
         var currentSrc;
 
+        function playInternal(item, playOptions, onPlaybackStartedFn) {
+            //Windows Game error
+            if (item.GameSystem == 'Windows' || item.GameSystem == 'DOS') {
+                item.IsPlaceHolder = false;
+            }
+
+
+            if (item.IsPlaceHolder) {
+                loading.hide();
+                showPlaybackInfoErrorMessage(self, 'PlaceHolder', true);
+                return Promise.reject();
+            }
+            alert('test2');
+            // Normalize defaults to simplfy checks throughout the process
+            normalizePlayOptions(playOptions);
+
+            if (playOptions.isFirstItem) {
+                playOptions.isFirstItem = false;
+            } else {
+                playOptions.isFirstItem = true;
+            }
+
+            return runInterceptors(item, playOptions).then(function () {
+
+                if (playOptions.fullscreen) {
+                    loading.show();
+                }
+
+                if (item.MediaType === 'Video' && isServerItem(item) && !itemHelper.isLocalItem(item) && appSettings.enableAutomaticBitrateDetection()) {
+
+                    var apiClient = connectionManager.getApiClient(item.ServerId);
+                    return apiClient.detectBitrate().then(function (bitrate) {
+
+                        appSettings.maxStreamingBitrate(bitrate);
+
+                        return playAfterBitrateDetect(connectionManager, bitrate, item, playOptions, onPlaybackStartedFn);
+
+                    }, function () {
+
+                        return playAfterBitrateDetect(connectionManager, appSettings.maxStreamingBitrate(), item, playOptions, onPlaybackStartedFn);
+                    });
+
+                } else {
+
+                    return playAfterBitrateDetect(connectionManager, appSettings.maxStreamingBitrate(), item, playOptions, onPlaybackStartedFn);
+                }
+
+            }, function () {
+
+                var player = self._currentPlayer;
+
+                if (player) {
+                    destroyPlayer(player);
+                    removeCurrentPlayer(player);
+                }
+
+                events.trigger(self, 'playbackcancelled');
+
+                return Promise.reject();
+            });
+        }
+
         self.canPlayMediaType = function (mediaType) {
             alert('OK2');
             return true;
