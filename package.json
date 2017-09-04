@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Applications Plugin for Emby Theater.",
     "plugin": "plugin.js",
-    "homepage": "https://github.com/crazybbs/Emby.Theater.Applications/blob/master",
+    "homepage": "https://crazybbs.github.io/Emby.Theater.Applications",
     "thumb": "",
     "backdrop": ""
 }
