@@ -2,7 +2,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
     "use strict";
 
     return function () {
-
+        alert('OK2');
         var self = this;
 
         self.name = 'Application';
@@ -73,7 +73,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
             if (options.mediaType === 'Game') {
                 if (options.gameSystem == 'Windows' || options.gameSystem == 'DOS') {
-                    alert('test');
                     if (player.gameName != options.gameName) {
                         return false;
                     }
