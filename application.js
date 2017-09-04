@@ -212,19 +212,19 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             return apiconnexion.getJSON(url);
         };
 
-        //ApiClient.prototype.getDosGames = function () {
+        function getDosGames () {
 
-        //    var options = {};
+            var options = {};
 
-        //    var userId = self.getCurrentUserId();
-        //    if (userId) {
-        //        options.userId = userId;
-        //    }
+            var userId = apiconnexion.getCurrentUserId();
+            if (userId) {
+                options.userId = userId;
+            }
 
-        //    var url = self.getUrl("/GameBrowser/Games/Dos", options);
+            var url = apiconnexion.getUrl("/GameBrowser/Games/Dos", options);
 
-        //    return self.getJSON(url);
-        //};
+            return apiconnexion.getJSON(url);
+        };
 
         function fillWindowsGame(value) {
 
@@ -243,22 +243,22 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             });
         }
 
-        //function fillDosGame(value) {
+        function fillDosGame(value) {
 
-        //    connectionManager.currentApiClient().getDosGames().then(function (dosGames) {
-        //        var selectDosGame = view.querySelector('.selectDosGame');
-        //        console.log(dosGames);
-        //        selectDosGame.innerHTML = dosGames.GameTitles.map(function (g) {
-        //            console.log(g);
-        //            return '<option value="' + g + '">' + g + '</option>';
+            getDosGames().then(function (dosGames) {
+                var selectDosGame = view.querySelector('.selectDosGame');
+                console.log(dosGames);
+                selectDosGame.innerHTML = dosGames.GameTitles.map(function (g) {
+                    console.log(g);
+                    return '<option value="' + g + '">' + g + '</option>';
 
-        //        }).join('');
+                }).join('');
 
-        //        if (value) {
-        //            selectDosGame.value = player.gameName;
-        //        }
-        //    });
-        //}
+                if (value) {
+                    selectDosGame.value = player.gameName;
+                }
+            });
+        }
 
         function renderSettings() {
 
