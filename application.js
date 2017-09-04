@@ -211,19 +211,19 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             return apiconnexion.getJSON(url);
         };
 
-        ApiClient.prototype.getDosGames = function () {
+        //ApiClient.prototype.getDosGames = function () {
 
-            var options = {};
+        //    var options = {};
 
-            var userId = self.getCurrentUserId();
-            if (userId) {
-                options.userId = userId;
-            }
+        //    var userId = self.getCurrentUserId();
+        //    if (userId) {
+        //        options.userId = userId;
+        //    }
 
-            var url = self.getUrl("/GameBrowser/Games/Dos", options);
+        //    var url = self.getUrl("/GameBrowser/Games/Dos", options);
 
-            return self.getJSON(url);
-        };
+        //    return self.getJSON(url);
+        //};
 
         function fillWindowsGame(value) {
 
