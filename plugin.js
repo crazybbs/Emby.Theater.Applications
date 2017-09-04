@@ -41,7 +41,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         };
 
         function getPlayer(options) {
-            alert('test2');
             var streamInfo = Object.assign({}, options);
 
             if (options.mediaSource) {
@@ -74,6 +73,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
             if (options.mediaType === 'Game') {
                 if (options.gameSystem == 'Windows' || options.gameSystem == 'DOS') {
+                    alert('test');
                     if (player.gameName != options.gameName) {
                         return false;
                     }
