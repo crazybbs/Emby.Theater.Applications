@@ -1,4 +1,4 @@
-define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager', 'paper-icon-button-light', 'listViewStyle'], function (loading, appSettings, focusManager, scrollHelper, layoutManager) {
+define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 'scrollHelper', 'layoutManager', 'paper-icon-button-light', 'listViewStyle'], function (globalize, loading, appSettings, pluginManager, focusManager, scrollHelper, layoutManager) {
     "use strict";
 
     return function (view, params) {
@@ -12,7 +12,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
         function editPlayer(id) {
 
-            var url = Emby.PluginManager.mapRoute('applications', 'application.html');
+            var url = pluginManager.mapRoute('application', 'application.html');
             if (id) {
                 url += '?id=' + id;
             }
@@ -58,7 +58,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
             var isRestored = e.detail.isRestored;
 
-            Emby.Page.setTitle(Globalize.translate('application#Applications'));
+            Emby.Page.setTitle(globalize.translate('application#Applications'));
 
             loading.hide();
 
@@ -84,18 +84,18 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
                 var menuItems = [];
 
                 menuItems.push({
-                    name: Globalize.translate('application#Edit'),
+                    name: globalize.translate('application#Edit'),
                     id: 'edit'
                 });
 
                 menuItems.push({
-                    name: Globalize.translate('application#Delete'),
+                    name: globalize.translate('application#Delete'),
                     id: 'delete'
                 });
 
                 actionsheet.show({
                     items: menuItems,
-                    title: Globalize.translate('application#Application')
+                    title: globalize.translate('application#Application')
 
                 }).then(function (id) {
                     switch (id) {
@@ -135,7 +135,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
             if (player.mediaType) {
                 html += '<div>';
-                html += Globalize.translate('application#' + player.mediaType);
+                html += globalize.translate('application#' + player.mediaType);
                 html += '</div>';
             }
 
