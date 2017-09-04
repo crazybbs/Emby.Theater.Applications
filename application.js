@@ -118,6 +118,8 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
         function save() {
             player.mediaType = view.querySelector('.selectMediaType').value;
             player.path = view.querySelector('.txtPath').value;
+            var recurv = /(?:\.([^.]+))?$/;
+            var ext = recurv.exec(player.path)[1];
 
             var args = view.querySelector('.txtArguments').value.trim();
 
@@ -125,6 +127,14 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                 player.arguments = args.split('\n');
             } else {
                 player.arguments = [];
+            }
+
+            if (ext != 'exe' && ext != 'com' && ext != 'bat') {
+                if (args[0] == '') {
+                    args = [];
+                }
+                player.arguments.unshift('/c', player.path);
+                player.path = 'c:\\windows\\system32\\cmd.exe';
             }
 
             var i, length;
