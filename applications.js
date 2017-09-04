@@ -24,7 +24,7 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
             var players = getPlayers().filter(function (p) {
                 return p.id !== id;
             });
-            appSettings.set('applications', JSON.stringify(players));
+            appSettings.set('externalplayers', JSON.stringify(players));
             loadPlayers();
         }
 
@@ -165,7 +165,7 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
 
         function getPlayers() {
 
-            return JSON.parse(appSettings.get('applications') || '[]');
+            return JSON.parse(appSettings.get('externalplayers') || '[]');
         }
     };
 

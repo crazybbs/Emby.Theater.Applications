@@ -163,7 +163,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             if (player.gameSystem == "DOS") {
                 player.gameName = view.querySelector('.selectDosGame').value;
             }
-            appSettings.set('applications', JSON.stringify(players));
+            appSettings.set('externalplayers', JSON.stringify(players));
 
             if (isNewPlayer) {
                 Emby.Page.back();
@@ -182,7 +182,6 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                 var selectGameSystem = view.querySelector('.selectGameSystem');
 
                 selectGameSystem.innerHTML = gameSystems.map(function (g) {
-                    console.log(g);
                     return '<option value="' + g.Name + '">' + g.DisplayName + '</option>';
 
                 }).join('');
