@@ -230,7 +230,6 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
 
             getWindowsGames().then(function (windowsGames) {
                 var selectWindowsGame = view.querySelector('.selectWindowsGame');
-                console.log(windowsGames);
                 selectWindowsGame.innerHTML = windowsGames.GameTitles.map(function (g) {
                     console.log(g);
                     return '<option value="' + g + '">' + g + '</option>';
@@ -247,7 +246,6 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
 
             getDosGames().then(function (dosGames) {
                 var selectDosGame = view.querySelector('.selectDosGame');
-                console.log(dosGames);
                 selectDosGame.innerHTML = dosGames.GameTitles.map(function (g) {
                     console.log(g);
                     return '<option value="' + g + '">' + g + '</option>';
