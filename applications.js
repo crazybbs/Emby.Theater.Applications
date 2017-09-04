@@ -12,7 +12,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
         function editPlayer(id) {
 
-            var url = Emby.PluginManager.mapRoute('application', 'application.html');
+            var url = Emby.PluginManager.mapRoute('applications', 'application.html');
             if (id) {
                 url += '?id=' + id;
             }
