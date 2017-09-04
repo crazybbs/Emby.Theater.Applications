@@ -79,13 +79,11 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                     }
                 }
                 else {
-                    alert(player.gameSystem);
-                    alert(options.gameSystem);
                     if (player.gameSystem != options.gameSystem) {
                         return false;
                     }
                 }
-
+                alert('OK');
                 return true;
             }
 
@@ -202,6 +200,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
             var player = getPlayer(options);
 
             var path = player.path;
+            alert(path);
 
             return modifyStreamUrl(options).then(function (streamUrl) {
 
