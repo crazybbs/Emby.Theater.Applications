@@ -150,7 +150,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
         function getPlayers() {
 
-            var players = JSON.parse(appSettings.get('applications') || '[]');
+            var players = JSON.parse(appSettings.get('externalplayers') || '[]');
             return players;
         }
 
@@ -312,7 +312,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
             var files = [];
 
-            var languages = ['de', 'en-US', 'es-419', 'fr', 'hr', 'it', 'pl', 'pt-BR', 'ru', 'zh-CN'];
+            var languages = ['de', 'en-GB', 'en-US', 'es-419', 'fr', 'hr', 'it', 'lt-LT', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ru', 'zh-CN'];
 
             return languages.map(function (i) {
                 return {
@@ -360,105 +360,99 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
         self.getDeviceProfile = function () {
 
-            return new Promise(function (resolve, reject) {
+            var bitrateSetting = appSettings.maxStreamingBitrate();
 
-                require(['browserdeviceprofile'], function (profileBuilder) {
+            var profile = {};
 
-                    var bitrateSetting = appSettings.maxStreamingBitrate();
+            profile.MaxStreamingBitrate = bitrateSetting;
+            profile.MaxStaticBitrate = 100000000;
+            profile.MusicStreamingTranscodingBitrate = 192000;
 
-                    var profile = {};
+            profile.DirectPlayProfiles = [];
 
-                    profile.MaxStreamingBitrate = bitrateSetting;
-                    profile.MaxStaticBitrate = 100000000;
-                    profile.MusicStreamingTranscodingBitrate = 192000;
-
-                    profile.DirectPlayProfiles = [];
-
-                    profile.DirectPlayProfiles.push({
-                        Container: 'm4v,3gp,ts,mpegts,mov,xvid,vob,mkv,wmv,asf,ogm,ogv,m2v,avi,mpg,mpeg,mp4,webm,wtv,dvr-ms,iso',
-                        Type: 'Video'
-                    });
-
-                    profile.DirectPlayProfiles.push({
-                        Container: 'aac,mp3,mpa,wav,wma,mp2,ogg,oga,webma,ape,opus,flac',
-                        Type: 'Audio'
-                    });
-
-                    profile.TranscodingProfiles = [];
-
-                    profile.TranscodingProfiles.push({
-                        Container: 'mkv',
-                        Type: 'Video',
-                        AudioCodec: 'aac,mp3,ac3',
-                        VideoCodec: 'h264',
-                        Context: 'Streaming'
-                    });
-
-                    profile.TranscodingProfiles.push({
-                        Container: 'mp3',
-                        Type: 'Audio',
-                        AudioCodec: 'mp3',
-                        Context: 'Streaming',
-                        Protocol: 'http'
-                    });
-
-                    profile.ContainerProfiles = [];
-
-                    profile.CodecProfiles = [];
-
-                    // Subtitle profiles
-                    // External vtt or burn in
-                    profile.SubtitleProfiles = [];
-                    profile.SubtitleProfiles.push({
-                        Format: 'srt',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'subrip',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'ass',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'ssa',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'pgs',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'pgssub',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'dvdsub',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'vtt',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'sub',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'idx',
-                        Method: 'Embed'
-                    });
-                    profile.SubtitleProfiles.push({
-                        Format: 'smi',
-                        Method: 'Embed'
-                    });
-
-                    profile.ResponseProfiles = [];
-
-                    resolve(profile);
-                });
+            profile.DirectPlayProfiles.push({
+                Container: 'm4v,3gp,ts,mpegts,mov,xvid,vob,mkv,wmv,asf,ogm,ogv,m2v,avi,mpg,mpeg,mp4,webm,wtv,dvr-ms,iso,m2ts',
+                Type: 'Video'
             });
+
+            profile.DirectPlayProfiles.push({
+                Container: 'aac,mp3,mpa,wav,wma,mp2,ogg,oga,webma,ape,opus,flac',
+                Type: 'Audio'
+            });
+
+            profile.TranscodingProfiles = [];
+
+            profile.TranscodingProfiles.push({
+                Container: 'mkv',
+                Type: 'Video',
+                AudioCodec: 'aac,mp3,ac3',
+                VideoCodec: 'h264',
+                Context: 'Streaming'
+            });
+
+            profile.TranscodingProfiles.push({
+                Container: 'mp3',
+                Type: 'Audio',
+                AudioCodec: 'mp3',
+                Context: 'Streaming',
+                Protocol: 'http'
+            });
+
+            profile.ContainerProfiles = [];
+
+            profile.CodecProfiles = [];
+
+            // Subtitle profiles
+            // External vtt or burn in
+            profile.SubtitleProfiles = [];
+            profile.SubtitleProfiles.push({
+                Format: 'srt',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'subrip',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'ass',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'ssa',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'pgs',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'pgssub',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'dvdsub',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'vtt',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'sub',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'idx',
+                Method: 'Embed'
+            });
+            profile.SubtitleProfiles.push({
+                Format: 'smi',
+                Method: 'Embed'
+            });
+
+            profile.ResponseProfiles = [];
+
+            return Promise.resolve(profile);
         };
     };
 });
