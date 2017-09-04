@@ -12,7 +12,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
         function editPlayer(id) {
 
-            var url = Emby.PluginManager.mapRoute('externalplayer', 'externalplayer.html');
+            var url = Emby.PluginManager.mapRoute('application', 'application.html');
             if (id) {
                 url += '?id=' + id;
             }
@@ -24,7 +24,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
             var players = getPlayers().filter(function (p) {
                 return p.id !== id;
             });
-            appSettings.set('externalplayers', JSON.stringify(players));
+            appSettings.set('applications', JSON.stringify(players));
             loadPlayers();
         }
 
@@ -58,7 +58,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
             var isRestored = e.detail.isRestored;
 
-            Emby.Page.setTitle(Globalize.translate('externalplayer#ExternalPlayers'));
+            Emby.Page.setTitle(Globalize.translate('application#Applications'));
 
             loading.hide();
 
@@ -84,18 +84,18 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
                 var menuItems = [];
 
                 menuItems.push({
-                    name: Globalize.translate('externalplayer#Edit'),
+                    name: Globalize.translate('application#Edit'),
                     id: 'edit'
                 });
 
                 menuItems.push({
-                    name: Globalize.translate('externalplayer#Delete'),
+                    name: Globalize.translate('application#Delete'),
                     id: 'delete'
                 });
 
                 actionsheet.show({
                     items: menuItems,
-                    title: Globalize.translate('externalplayer#ExternalPlayer')
+                    title: Globalize.translate('application#Application')
 
                 }).then(function (id) {
                     switch (id) {
@@ -135,7 +135,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
             if (player.mediaType) {
                 html += '<div>';
-                html += Globalize.translate('externalplayer#' + player.mediaType);
+                html += Globalize.translate('application#' + player.mediaType);
                 html += '</div>';
             }
 
@@ -165,7 +165,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'layoutManager
 
         function getPlayers() {
 
-            return JSON.parse(appSettings.get('externalplayers') || '[]');
+            return JSON.parse(appSettings.get('applications') || '[]');
         }
     };
 
