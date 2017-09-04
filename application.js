@@ -227,7 +227,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
 
         function fillWindowsGame(value) {
 
-            connectionManager.currentApiClient().getWindowsGames().then(function (windowsGames) {
+            getWindowsGames.then(function (windowsGames) {
                 var selectWindowsGame = view.querySelector('.selectWindowsGame');
                 console.log(windowsGames);
                 selectWindowsGame.innerHTML = windowsGames.GameTitles.map(function (g) {
@@ -242,22 +242,22 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             });
         }
 
-        function fillDosGame(value) {
+        //function fillDosGame(value) {
 
-            connectionManager.currentApiClient().getDosGames().then(function (dosGames) {
-                var selectDosGame = view.querySelector('.selectDosGame');
-                console.log(dosGames);
-                selectDosGame.innerHTML = dosGames.GameTitles.map(function (g) {
-                    console.log(g);
-                    return '<option value="' + g + '">' + g + '</option>';
+        //    connectionManager.currentApiClient().getDosGames().then(function (dosGames) {
+        //        var selectDosGame = view.querySelector('.selectDosGame');
+        //        console.log(dosGames);
+        //        selectDosGame.innerHTML = dosGames.GameTitles.map(function (g) {
+        //            console.log(g);
+        //            return '<option value="' + g + '">' + g + '</option>';
 
-                }).join('');
+        //        }).join('');
 
-                if (value) {
-                    selectDosGame.value = player.gameName;
-                }
-            });
-        }
+        //        if (value) {
+        //            selectDosGame.value = player.gameName;
+        //        }
+        //    });
+        //}
 
         function renderSettings() {
 
