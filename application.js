@@ -281,7 +281,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             
             if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] =='/c') {
                 player.path = player.arguments[1];
-
+                player.arguments.splice(0, 2);
             }
 
 
