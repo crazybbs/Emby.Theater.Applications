@@ -197,6 +197,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
         }
 
         var apiconnexion = connectionManager.currentApiClient();
+
         function getWindowsGames() {
 
             var options = {};
@@ -227,7 +228,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
 
         function fillWindowsGame(value) {
 
-            getWindowsGames.then(function (windowsGames) {
+            getWindowsGames().then(function (windowsGames) {
                 var selectWindowsGame = view.querySelector('.selectWindowsGame');
                 console.log(windowsGames);
                 selectWindowsGame.innerHTML = windowsGames.GameTitles.map(function (g) {
