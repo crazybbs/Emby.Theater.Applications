@@ -1,4 +1,4 @@
-define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionManager', 'layoutManager'], function (loading, appSettings, focusManager, scrollHelper, connectionManager, layoutManager) {
+define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionManager', 'layoutManager'], function (globalize, loading, appSettings, focusManager, scrollHelper, connectionManager, layoutManager) {
     "use strict";
 
     return function (view, params) {
@@ -11,7 +11,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionMan
 
             var isRestored = e.detail.isRestored;
 
-            Emby.Page.setTitle(Globalize.translate('externalplayer#ExternalPlayer'));
+            Emby.Page.setTitle(globalize.translate('application#Application'));
 
             loading.hide();
 
@@ -163,7 +163,7 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionMan
             if (player.gameSystem == "DOS") {
                 player.gameName = view.querySelector('.selectDosGame').value;
             }
-            appSettings.set('externalplayers', JSON.stringify(players));
+            appSettings.set('applications', JSON.stringify(players));
 
             if (isNewPlayer) {
                 Emby.Page.back();
@@ -195,6 +195,34 @@ define(['loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionMan
                 }
             });
         }
+
+        ApiClient.prototype.getWindowsGames = function () {
+
+            var options = {};
+
+            var userId = self.getCurrentUserId();
+            if (userId) {
+                options.userId = userId;
+            }
+
+            var url = self.getUrl("/GameBrowser/Games/Windows", options);
+
+            return self.getJSON(url);
+        };
+
+        ApiClient.prototype.getDosGames = function () {
+
+            var options = {};
+
+            var userId = self.getCurrentUserId();
+            if (userId) {
+                options.userId = userId;
+            }
+
+            var url = self.getUrl("/GameBrowser/Games/Dos", options);
+
+            return self.getJSON(url);
+        };
 
         function fillWindowsGame(value) {
 
