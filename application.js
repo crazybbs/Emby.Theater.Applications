@@ -196,18 +196,19 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             });
         }
 
-        ApiClient.prototype.getWindowsGames = function () {
+        var apiconnexion = connectionManager.currentApiClient();
+        function getWindowsGames() {
 
             var options = {};
 
-            var userId = self.getCurrentUserId();
+            var userId = apiconnexion.getCurrentUserId();
             if (userId) {
                 options.userId = userId;
             }
 
-            var url = self.getUrl("/GameBrowser/Games/Windows", options);
+            var url = apiconnexion.getUrl("/GameBrowser/Games/Windows", options);
 
-            return self.getJSON(url);
+            return apiconnexion.getJSON(url);
         };
 
         ApiClient.prototype.getDosGames = function () {
