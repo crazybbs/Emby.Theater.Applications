@@ -11,7 +11,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         // Prioritize first
         self.priority = -1;
         self.supportsProgress = false;
-        self.isLocalPlayer = true;
+        self.isLocalPlayer = false;
 
         var currentProcess;
 
