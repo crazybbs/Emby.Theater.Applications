@@ -197,7 +197,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         }
 
         self.play = function (options) {
-
+            alert('playep');
             var player = getPlayer(options);
 
             var path = player.path;
