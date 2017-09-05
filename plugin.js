@@ -20,12 +20,10 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
        
 
         self.canPlayMediaType = function (mediaType) {
-            alert('OK2');
             return true;
         };
 
         self.canPlayItem = function (item, playOptions) {
-            alert('OK3');
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
@@ -64,7 +62,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         }
 
         function isConfiguredToPlay(player, options) {
-            alert('OK4');
             if (!shell.canExec) {
                 return false;
             }
@@ -84,7 +81,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                         return false;
                     }
                 }
-                alert('OK');
                 return true;
             }
 
