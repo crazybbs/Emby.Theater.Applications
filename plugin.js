@@ -63,6 +63,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         }
 
         function isConfiguredToPlay(player, options) {
+            alert('test');
             if (!shell.canExec) {
                 return false;
             }
