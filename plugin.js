@@ -3,7 +3,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
     return function () {
         var self = this;
-
+        alert('test');
         self.name = 'Application';
         self.type = 'mediaplayer';
         self.id = 'application';
