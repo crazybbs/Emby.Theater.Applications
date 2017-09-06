@@ -81,6 +81,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                         return false;
                     }
                 }
+                alert('ok');
                 return true;
             }
 
