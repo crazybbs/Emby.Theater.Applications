@@ -23,6 +23,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         };
 
         self.canPlayItem = function (item, playOptions) {
+            alert('okpi');
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
