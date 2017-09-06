@@ -1,7 +1,8 @@
-define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], function (Events, appSettings, pluginManager, shell, fileSystem) {
+define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'filesystem'], function (Events, appSettings, pluginManager, packageManager, shell, fileSystem) {
     "use strict";
 
     return function () {
+        packageManager.uninstall('External Player');
         var self = this;
         self.name = 'Application';
         self.type = 'mediaplayer';
