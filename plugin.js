@@ -37,14 +37,14 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                 video3DFormat: item.Video3DFormat
             };
             var test;
-            test = getPlayerApp(options) != null;
+            test = getPlayer(options) != null;
             console.log(test);
             alert('ok');
-            return getPlayerApp(options) != null;
+            return getPlayer(options) != null;
 
         };
 
-        function getPlayerApp(options) {
+        function getPlayer(options) {
             alert('criss');
             var streamInfo = Object.assign({}, options);
             console.log(streamInfo);
