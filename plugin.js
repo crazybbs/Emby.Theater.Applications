@@ -34,8 +34,11 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
             };
-
+            var test;
+            test = getPlayer(options) != null;
             return getPlayer(options) != null;
+            console.log(test);
+            alert('ok');
         };
 
         function getPlayer(options) {
@@ -51,15 +54,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                 streamInfo.gameSystem = options.item.GameSystem;
                 streamInfo.gameName = options.item.Name;
             }
-
-            var test;
-             test = getPlayers().filter(function (player) {
-
-                return isConfiguredToPlay(player, streamInfo);
-
-             })[0];
-
-             console.log(test);
 
             return getPlayers().filter(function (player) {
 
@@ -79,8 +73,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
             if (options.mediaType === 'Game') {
                 if (options.gameSystem == 'Windows' || options.gameSystem == 'DOS') {
-                    alert(player.gameName);
-                    alert(options.gameName);
                     if (player.gameName != options.gameName) {
                         return false;
                     }
@@ -90,7 +82,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
                         return false;
                     }
                 }
-                alert('ok');
                 return true;
             }
 
