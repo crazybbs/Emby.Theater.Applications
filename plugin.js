@@ -192,11 +192,9 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
-            alert('playep');
             var player = getPlayer(options);
 
             var path = player.path;
-            alert(path);
 
             return modifyStreamUrl(options).then(function (streamUrl) {
 
