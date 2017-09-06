@@ -26,8 +26,8 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
-            //alert('test');
-            //alert(item.IsPlaceHolder);
+            alert('test');
+            alert(item.IsPlaceHolder);
             var options = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
