@@ -44,6 +44,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
         };
 
         function getPlayer(options) {
+            alert('criss');
             var streamInfo = Object.assign({}, options);
             console.log(streamInfo);
 
