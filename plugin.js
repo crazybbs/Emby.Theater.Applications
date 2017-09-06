@@ -10,7 +10,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
         // Prioritize first
         self.priority = -99;
-        alert('load');
         self.supportsProgress = false;
         self.isLocalPlayer = true;
 
@@ -25,7 +24,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         self.canPlayItem = function (item, playOptions) {
-            alert('okpi');
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
@@ -37,18 +35,12 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
             };
-            var test;
-            test = getPlayer(options) != null;
-            console.log(test);
-            alert('ok');
             return getPlayer(options) != null;
 
         };
 
         function getPlayer(options) {
-            alert('criss');
             var streamInfo = Object.assign({}, options);
-            console.log(streamInfo);
 
             if (options.mediaSource) {
                 streamInfo.videoType = options.mediaSource.VideoType;
