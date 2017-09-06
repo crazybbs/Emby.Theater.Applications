@@ -45,6 +45,7 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
         function getPlayer(options) {
             var streamInfo = Object.assign({}, options);
+            console.log(streamInfo);
 
             if (options.mediaSource) {
                 streamInfo.videoType = options.mediaSource.VideoType;
