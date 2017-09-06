@@ -26,8 +26,6 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
-            alert('test');
-            alert(item.IsPlaceHolder);
             var options = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
@@ -72,6 +70,8 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
 
             if (options.mediaType === 'Game') {
                 if (options.gameSystem == 'Windows' || options.gameSystem == 'DOS') {
+                    alert(player.gameName);
+                    alert(options.gameName);
                     if (player.gameName != options.gameName) {
                         return false;
                     }
