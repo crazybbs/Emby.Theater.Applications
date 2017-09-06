@@ -10,7 +10,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
         // Prioritize first
         self.priority = -99;
-        alert(self.priority);
+        alert('load');
         self.supportsProgress = false;
         self.isLocalPlayer = true;
 
