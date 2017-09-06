@@ -37,9 +37,10 @@ define(['events', 'appSettings', 'pluginManager', 'shell', 'filesystem'], functi
             };
             var test;
             test = getPlayer(options) != null;
-            return getPlayer(options) != null;
             console.log(test);
             alert('ok');
+            return getPlayer(options) != null;
+
         };
 
         function getPlayer(options) {
