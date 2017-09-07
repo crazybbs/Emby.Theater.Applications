@@ -352,6 +352,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 routes.push({
                     path: 'showapplications.html',
                     transition: 'slide',
+                    type: 'home',
+                    title: 'Applications',
                     controller: pluginManager.mapPath(self, 'showapplications.js'),
                     autoFocus: false
                 });
