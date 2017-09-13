@@ -133,7 +133,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                 if (args[0] == '') {
                     args = [];
                 }
-                player.arguments.unshift('/c', player.path);
+                player.arguments.unshift('/c','taskkill','/f','/im','Emby.Theater.exe','&&', player.path);
                 player.path = 'c:\\windows\\system32\\cmd.exe';
             }
 
