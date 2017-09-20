@@ -133,10 +133,8 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                 if (args[0] == '') {
                     args = [];
                 }
-                var argtounshift;
-                argtounshift = '/c ' + player.path +' && taskkill /f /im Emby.Theater.exe && taskkill /f /im electron.exe';
-                alert(argtounshift);
-                player.arguments.unshift(argtounshift);
+                player.arguments.unshift('/c', player.path);
+                player.arguments.push('&& taskkill /f /im Emby.Theater.exe && taskkill /f /im electron.exe');
                 player.path = 'c:\\windows\\system32\\cmd.exe';
             }
 
@@ -282,9 +280,9 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             selectMediaType.value = player.mediaType || 'Video';
             onMediaTypeChange.call(selectMediaType);
             
-            if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0].startsWidth =='/c taskkill') {
-                player.path = player.arguments[0].substring(69);
-                player.arguments.splice(0, 1);
+            if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] =='/c') {
+                player.path = player.arguments[1];
+                player.arguments.splice(0, 2);
             }
 
 
