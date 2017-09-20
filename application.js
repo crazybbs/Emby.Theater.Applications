@@ -134,7 +134,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                     args = [];
                 }
                 var argtounshift;
-                argtounshift = '/c taskkill /f /im Emby.Theater.exe && taskkill /f /im electron.exe && ' + player.path.replace(/\n/g, '');
+                argtounshift = '/c taskkill /f /im Emby.Theater.exe && ' + player.path.replace(/\n/g, '');
                 alert(argtounshift);
                 player.arguments.unshift(argtounshift);
                 player.path = 'c:\\windows\\system32\\cmd.exe';
