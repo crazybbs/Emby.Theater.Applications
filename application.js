@@ -282,9 +282,9 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             selectMediaType.value = player.mediaType || 'Video';
             onMediaTypeChange.call(selectMediaType);
             
-            if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] =='/c') {
-                player.path = player.arguments[1];
-                player.arguments.splice(0, 2);
+            if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0].startsWidth =='/c taskkill') {
+                player.path = player.arguments[0].substring(69);
+                player.arguments.splice(0, 1);
             }
 
 
