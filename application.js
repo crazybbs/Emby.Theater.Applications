@@ -281,8 +281,8 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             onMediaTypeChange.call(selectMediaType);
             
             if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] =='/c') {
-                player.path = player.arguments[1].slice(0, -32);
-                player.path = player.path.substr(6);
+                player.path = player.arguments[1].slice(0, -33);
+                player.path = player.path.substr(9);
                 player.arguments.splice(0, 2);
             }
 
