@@ -143,7 +143,7 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
                 html += '<div class="secondary">';
                 if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] == '/c')
                 {
-                    player.path = player.arguments[1].slice(0, -68);
+                    player.path = player.arguments[1].slice(0, -32);
                 }
                 html += player.path;
                 html += '</div>';
