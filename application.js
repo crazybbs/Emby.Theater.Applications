@@ -133,7 +133,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
                 if (args[0] == '') {
                     args = [];
                 }
-                var argtounshift = 'start "" ' + player.path + '" && taskkill /f /im electron.exe';
+                var argtounshift = 'start "" "' + player.path + '" && taskkill /f /im electron.exe';
                 player.arguments.unshift('/c', argtounshift);
                 player.path = 'c:\\windows\\system32\\cmd.exe';
             }
