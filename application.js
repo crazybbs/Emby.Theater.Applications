@@ -209,7 +209,6 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
         var apiconnexion = connectionManager.currentApiClient();
 
         function getWindowsGames() {
-            s
             var options = {};
 
             var userId = apiconnexion.getCurrentUserId();
