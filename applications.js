@@ -141,11 +141,11 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
 
             if (player.path) {
                 html += '<div class="secondary">';
-                //if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] == '/c')
-                //{
-                //    player.path = player.arguments[1].slice(0, -33);
-                //    player.path = player.path.substr(10);
-                //}
+                if (player.path == 'c:\\windows\\system32\\cmd.exe' && player.arguments[0] == '/c')
+                {
+                    player.path = player.arguments[1].slice(0, -33);
+                    player.path = player.path.substr(10);
+                }
                 html += player.path;
                 html += '</div>';
             }
