@@ -63,7 +63,7 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
             loading.hide();
 
             if (!isRestored) {
-                scrollHelper.centerFocus.on(view.querySelector('.smoothScrollY'), false);
+                scrollHelper.centerFocus.on(view, false);
             }
 
             loadPlayers();
