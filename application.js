@@ -18,7 +18,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             if (!isRestored) {
 
                 if (layoutManager.tv) {
-                    scrollHelper.centerFocus.on(view.querySelector('.smoothScrollY'), false);
+                    scrollHelper.centerFocus.on(view, false);
                 }
 
                 loadPlayer();
@@ -209,7 +209,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
         var apiconnexion = connectionManager.currentApiClient();
 
         function getWindowsGames() {
-
+            s
             var options = {};
 
             var userId = apiconnexion.getCurrentUserId();
