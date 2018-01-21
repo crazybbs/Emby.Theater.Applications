@@ -52,7 +52,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
         view.querySelector('.selectMediaType').addEventListener('change', onMediaTypeChange);
 
         // add event listener for game type (Windows game)
-        view.querySelector('.selectGameSystem').addEventListener('change', onGameSystemChange);
+        //view.querySelector('.selectGameSystem').addEventListener('change', onGameSystemChange);
 
         function onMediaTypeChange(e) {
             var select = this;
