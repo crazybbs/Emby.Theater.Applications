@@ -343,7 +343,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 ],
                 controller: pluginManager.mapPath(self, 'applications.js'),
                 type: 'settings',
-                title: 'ZApplications',
+                title: 'Applications',
                 category: 'Playback',
                 thumbImage: ''
             });
