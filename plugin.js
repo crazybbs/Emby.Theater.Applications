@@ -348,15 +348,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 thumbImage: ''
             });
 
-            
-                routes.push({
-                    path: 'showapplications.html',
-                    transition: 'slide',
-                    type: 'menu',
-                    title: 'Applications',
-                    controller: pluginManager.mapPath(self, 'showapplications.js'),
-                    autoFocus: false
-                });
 
             return routes;
         };
