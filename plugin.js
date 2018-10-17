@@ -55,7 +55,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             else {
                 //console.log(options);
                 var items = options.items;
-                items.forEach(function (element) {
+                Array.prototype.forEach(items)(function (element) {
                     console.log(element);
                 });
 
