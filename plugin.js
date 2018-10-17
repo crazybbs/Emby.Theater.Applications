@@ -68,8 +68,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         function isConfiguredToPlay(player, options) {
-            console.log(player);
-            console.log(options);
             if (!shell.canExec) {
                 return false;
             }
@@ -89,7 +87,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                         return false;
                     }
                 }
-                alert('OUI');
+
                 return true;
             }
 
