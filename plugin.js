@@ -55,7 +55,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             else {
                 //console.log(options);
                 var items = options.items;
-                var item = JSON.parse(JSON.stringify(items));
+                var item = JSON.parse(JSON.stringify(items[0]));
                 
                 console.log(item);
 
