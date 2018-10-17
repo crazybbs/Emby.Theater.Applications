@@ -54,9 +54,10 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
             else {
                 //console.log(options);
-                var items = options.items;
+                var item = options.items;
                 //alert(items.0.GameSystem);
-                console.log(items[0]);
+                console.dir(items);
+                console.log(items);
                 if (options.items) {
                     streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
                     streamInfo.gameName = options.items[0].Name;
