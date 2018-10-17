@@ -60,12 +60,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 }
             }
 
-            var test =getPlayers().filter(function (player) {
-
-                return isConfiguredToPlay(player, streamInfo);
-
-            })[0];
-            console.log(test);
 
             return getPlayers().filter(function (player) {
 
@@ -208,7 +202,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
-            console.log(options);
+            //console.log(options);
             
             var player = getPlayer(options);
             //console.log(player);
