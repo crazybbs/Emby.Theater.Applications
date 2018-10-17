@@ -61,6 +61,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         function isConfiguredToPlay(player, options) {
+            console.log(player);
+            console.log(options);
             if (!shell.canExec) {
                 return false;
             }
@@ -145,7 +147,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         function getPlayers() {
 
             var players = JSON.parse(appSettings.get('externalplayers') || '[]');
-            console.log(players);
+        
             return players;
         }
 
