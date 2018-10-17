@@ -57,7 +57,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 var item = options.items;
                 //alert(items.0.GameSystem);
                 console.dir(item);
-                console.log(item);
+                console.log(item.["0"].MediaType);
+                    ;
                 if (options.items) {
                     streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
                     streamInfo.gameName = options.items[0].Name;
