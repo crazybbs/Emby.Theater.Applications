@@ -54,10 +54,9 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
             else {
                 //console.log(options);
-                var items = options.items;
-                Array.prototype.forEach.call(items,function (element) {
-                    console.log(element);
-                });
+                var items = JSON.stringify(options.items);
+                console.log(items);
+               
 
 
                 if (options.items) {
