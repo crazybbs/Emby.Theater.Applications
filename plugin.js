@@ -53,6 +53,13 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 streamInfo.gameName = options.item.Name;
             }
 
+            var test = return getPlayers().filter(function (player) {
+
+                return isConfiguredToPlay(player, streamInfo);
+
+            })[0];
+            console.log(test);
+
             return getPlayers().filter(function (player) {
 
                 return isConfiguredToPlay(player, streamInfo);
