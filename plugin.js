@@ -52,6 +52,12 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 streamInfo.gameSystem = options.item.GameSystemId || options.item.GameSystem;
                 streamInfo.gameName = options.item.Name;
             }
+            else {
+                if (options.items[0]) {
+                    streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
+                    streamInfo.gameName = options.items[0].Name;
+                }
+            }
 
             var test =getPlayers().filter(function (player) {
 
