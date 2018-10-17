@@ -55,7 +55,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             else {
                 //console.log(options);
                 var items = options.items;
-                var item = item.slice(0, 1);
+                var item = items.slice(0, 1);
                 //alert(items.0.GameSystem);
                 console.dir(item);
                 console.log(item.MediaType);
