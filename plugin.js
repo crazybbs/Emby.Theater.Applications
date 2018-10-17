@@ -64,7 +64,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                     streamInfo.gameName = options.items[0].Name;
                 }
             }
-            console.log(streamInfo);
+            //console.log(streamInfo);
 
             return getPlayers().filter(function (player) {
 
