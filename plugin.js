@@ -145,6 +145,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         function getPlayers() {
 
             var players = JSON.parse(appSettings.get('externalplayers') || '[]');
+            console.log(players);
             return players;
         }
 
