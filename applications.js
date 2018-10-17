@@ -1,4 +1,4 @@
-define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 'scrollHelper', 'layoutManager', 'paper-icon-button-light', 'listViewStyle'], function (globalize, loading, appSettings, pluginManager, focusManager, scrollHelper, layoutManager) {
+define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 'layoutManager', 'emby-scroller', 'paper-icon-button-light', 'listViewStyle', 'emby-button', 'material-icons'], function (globalize, loading, appSettings, pluginManager, focusManager, layoutManager) {
     "use strict";
 
     return function (view, params) {
@@ -61,10 +61,6 @@ define(['globalize', 'loading', 'appSettings', 'pluginManager', 'focusManager', 
             Emby.Page.setTitle(globalize.translate('application#Applications'));
 
             loading.hide();
-
-            if (!isRestored) {
-                scrollHelper.centerFocus.on(view, false);
-            }
 
             loadPlayers();
         });

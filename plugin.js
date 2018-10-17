@@ -9,7 +9,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         self.id = 'application';
 
         // Prioritize first
-        self.priority = -99;
+        self.priority = -10;
         self.supportsProgress = false;
         self.isLocalPlayer = true;
 
@@ -30,7 +30,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             var options = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
-                gameSystem: item.GameSystem,
+                gameSystem: item.GameSystemId || item.GameSystem,
                 gameName: item.Name,
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
@@ -49,7 +49,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
 
             if (options.item) {
-                streamInfo.gameSystem = options.item.GameSystem;
+                streamInfo.gameSystem = options.item.GameSystemId || options.item.GameSystem;
                 streamInfo.gameName = options.item.Name;
             }
 
@@ -192,6 +192,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
+
             var player = getPlayer(options);
 
             var path = player.path;
@@ -305,7 +306,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
             var files = [];
 
-            var languages = ['de', 'en-GB', 'en-US', 'es-419', 'fr', 'hr', 'it', 'lt-LT', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ru', 'zh-CN'];
+            var languages = ['bg-BG', 'cs', 'de', 'el', 'en-GB', 'en-US', 'es', 'es-MX', 'fr', 'gsw', 'he', 'hr', 'hu', 'it', 'kk', 'ko', 'lt-LT', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ru', 'sk', 'sl-SI', 'sv', 'zh-CN'];
 
             return languages.map(function (i) {
                 return {
@@ -322,25 +323,12 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             routes.push({
                 path: 'application.html',
                 transition: 'slide',
-                dependencies: [
-                    'emby-select',
-                    'emby-button',
-                    'emby-input',
-                    'emby-textarea',
-                    'emby-checkbox'
-                ],
                 controller: pluginManager.mapPath(self, 'application.js')
             });
 
             routes.push({
                 path: 'applications.html',
                 transition: 'slide',
-                dependencies: [
-                    'emby-button',
-                    'material-icons',
-                    'listViewStyle',
-                    'paper-icon-button-light'
-                ],
                 controller: pluginManager.mapPath(self, 'applications.js'),
                 type: 'settings',
                 title: 'Applications',

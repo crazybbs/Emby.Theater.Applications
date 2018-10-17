@@ -1,4 +1,4 @@
-define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', 'connectionManager', 'layoutManager'], function (globalize, loading, appSettings, focusManager, scrollHelper, connectionManager, layoutManager) {
+define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManager', 'emby-scroller', 'emby-select', 'emby-button', 'emby-input', 'emby-textarea', 'emby-checkbox'], function (globalize, loading, appSettings, focusManager, connectionManager) {
     "use strict";
 
     return function (view, params) {
@@ -16,10 +16,6 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'scrollHelper', '
             loading.hide();
 
             if (!isRestored) {
-
-                if (layoutManager.tv) {
-                    scrollHelper.centerFocus.on(view, false);
-                }
 
                 loadPlayer();
                 renderSettings();
