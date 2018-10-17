@@ -207,7 +207,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
-            //console.log(options);
+            console.log(options);
             
             var player = getPlayer(options);
             //console.log(player);
