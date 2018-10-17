@@ -53,7 +53,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 streamInfo.gameName = options.item.Name;
             }
             else {
-                if (options.items[0]) {
+                console.log(options);
+                if (options.items) {
                     streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
                     streamInfo.gameName = options.items[0].Name;
                 }
