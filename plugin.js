@@ -55,10 +55,9 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             else {
                 //console.log(options);
                 var items = options.items;
-                var item = items.slice(0, 1);
-                //alert(items.0.GameSystem);
-                console.dir(item);
-                console.log(item.MediaType);
+                var item = JSON.parse(JSON.stringify(items));
+                
+                console.log(item);
 
                 if (options.items) {
                     streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
