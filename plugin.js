@@ -54,10 +54,10 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
             else {
                 //console.log(options);
-                var item = options.items;
+                var item = options.items.slice(0,1);
                 //alert(items.0.GameSystem);
                 console.dir(item);
-                console.log(item["0"].MediaType);
+                console.log(item.MediaType);
                     ;
                 if (options.items) {
                     streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
