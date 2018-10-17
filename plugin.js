@@ -9,7 +9,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         self.id = 'application';
 
         // Prioritize first
-        self.priority = -10;
+        self.priority = -99;
         self.supportsProgress = false;
         self.isLocalPlayer = true;
 
