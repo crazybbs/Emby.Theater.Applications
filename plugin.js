@@ -55,7 +55,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             else {
                 //console.log(options);
                 var items = JSON.stringify(options.items);
-                console.log(items);
+                //console.log(items);
                
 
 
@@ -64,7 +64,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                     streamInfo.gameName = options.items[0].Name;
                 }
             }
-            //console.log(streamInfo);
+            console.log(streamInfo);
 
             return getPlayers().filter(function (player) {
 
