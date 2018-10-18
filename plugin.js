@@ -24,6 +24,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         self.canPlayItem = function (item, playOptions) {
+            console.log(item);
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
@@ -216,7 +217,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
-            console.log(games);
+            //console.log(games);
             if (games.mediaType === 'Game') {
                 options = games;
             }
@@ -225,7 +226,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             var path = player.path;
 
             return modifyStreamUrl(options).then(function (streamUrl) {
-                console.log(options);
+                //console.log(options);
                 return shell.exec({
                     path: path,
                     arguments: getArguments(player, streamUrl, options).join('|||')
