@@ -40,6 +40,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         function getPlayer(options) {
+            console.log(options);
             var streamInfo = Object.assign({}, options.items);
 
             if (options.mediaSource) {
@@ -64,7 +65,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                     streamInfo.gameName = options.items[0].Name;
                 }
             }
-            console.log(streamInfo);
+            //console.log(streamInfo);
 
             return getPlayers().filter(function (player) {
 
