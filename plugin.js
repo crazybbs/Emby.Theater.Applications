@@ -217,7 +217,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
         self.play = function (options) {
             console.log(games);
-            if (test.mediaType === 'Game') {
+            if (games.mediaType === 'Game') {
                 options = games;
             }
             var player = getPlayer(options);
