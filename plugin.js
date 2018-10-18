@@ -225,7 +225,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             var path = player.path;
 
             return modifyStreamUrl(options).then(function (streamUrl) {
-
+                console.log(options);
                 return shell.exec({
                     path: path,
                     arguments: getArguments(player, streamUrl, options).join('|||')
