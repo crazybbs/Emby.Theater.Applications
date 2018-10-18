@@ -40,7 +40,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         function getPlayer(options) {
-            var streamInfo = Object.assign({}, options);
+            var streamInfo = Object.assign({}, options.items);
 
             if (options.mediaSource) {
                 streamInfo.videoType = options.mediaSource.VideoType;
