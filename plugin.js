@@ -50,7 +50,6 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         function getPlayer(options) {
-            //console.log(options);
             var streamInfo = Object.assign({}, options);
 
             if (options.mediaSource) {
@@ -63,20 +62,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 streamInfo.gameSystem = options.item.GameSystemId || options.item.GameSystem;
                 streamInfo.gameName = options.item.Name;
             }
-            else {
-                //console.log(options);
-                //var items = JSON.stringify(options.items);
-                //console.log(items);
-               
-
-
-                if (options.items) {
-                    streamInfo.gameSystem = options.items[0].GameSystemId || options.items[0].GameSystem;
-                    streamInfo.gameName = options.items[0].Name;
-                }
-            }
-            //console.log(streamInfo);
-
+  
+ 
             return getPlayers().filter(function (player) {
 
                 return isConfiguredToPlay(player, streamInfo);
@@ -221,16 +208,13 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         }
 
         self.play = function (options) {
-            //console.log(games);
             if (games.mediaType === 'Game') {
                 options = games;
             }
             var player = getPlayer(options);
-            //console.log(player);
             var path = player.path;
 
             return modifyStreamUrl(options).then(function (streamUrl) {
-                //console.log(options);
                 return shell.exec({
                     path: path,
                     arguments: getArguments(player, streamUrl, options).join('|||')
