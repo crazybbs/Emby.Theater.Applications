@@ -35,7 +35,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
             };
-            var test = {
+            test = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
                 gameSystem: item.GameSystemId || item.GameSystem,
