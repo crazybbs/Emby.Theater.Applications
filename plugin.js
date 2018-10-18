@@ -16,7 +16,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         var currentProcess;
 
         var currentSrc;
-
+        var test;
        
 
         self.canPlayMediaType = function (mediaType) {
