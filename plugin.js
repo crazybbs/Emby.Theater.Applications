@@ -24,7 +24,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         };
 
         self.canPlayItem = function (item, playOptions) {
-            console.log(item);
+            //console.log(item);
             if (item.MediaType === 'Video' && !playOptions.fullscreen) {
                 return false;
             }
@@ -41,6 +41,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 videoType: item.VideoType,
                 gameSystem: item.GameSystemId || item.GameSystem,
                 gameName: item.Name,
+                gamePath: item.Path,
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
             };
@@ -199,6 +200,9 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         function modifyStreamUrl(options) {
 
             var url = options.url;
+            if (options.gamePath) {
+                url = options.gamePath;
+            }
             var mediaSource = options.mediaSource;
 
             if (!mediaSource || mediaSource.Protocol !== 'File' || url === mediaSource.Path) {
