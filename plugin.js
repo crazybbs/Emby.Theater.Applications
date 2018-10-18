@@ -54,7 +54,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
             else {
                 //console.log(options);
-                var items = JSON.stringify(options.items);
+                //var items = JSON.stringify(options.items);
                 //console.log(items);
                
 
