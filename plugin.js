@@ -16,7 +16,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
         var currentProcess;
 
         var currentSrc;
-        var test;
+        var games;
        
 
         self.canPlayMediaType = function (mediaType) {
@@ -35,7 +35,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
             };
-            test = {
+            games = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
                 gameSystem: item.GameSystemId || item.GameSystem,
@@ -217,7 +217,9 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
         self.play = function (options) {
             console.log(test);
-            
+            if (test.mediaType === 'Game') {
+                options = test;
+            }
             var player = getPlayer(options);
             //console.log(player);
             var path = player.path;
