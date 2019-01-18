@@ -31,7 +31,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             var options = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
-                gameSystem: item.GameSystemId || item.GameSystem,
+                gameSystem: item.GameSystem,
                 gameName: item.Name,
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
                 video3DFormat: item.Video3DFormat
@@ -39,7 +39,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             games = {
                 mediaType: item.MediaType,
                 videoType: item.VideoType,
-                gameSystem: item.GameSystemId || item.GameSystem,
+                gameSystem: item.GameSystem,
                 gameName: item.Name,
                 gamePath: item.Path,
                 protocol: item.LocationType === 'Remote' || item.LocationType === 'Virtual' ? 'Http' : 'File',
