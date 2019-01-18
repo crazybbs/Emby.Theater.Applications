@@ -234,6 +234,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
         function fillPCGame(value) {
 
             getPCGames().then(function (PCGames) {
+                console.log(PCGames);
                 var selectPCGame = view.querySelector('.selectPCGame');
                 selectPCGame.innerHTML = PCGames.GameTitles.map(function (g) {
                     console.log(g);
