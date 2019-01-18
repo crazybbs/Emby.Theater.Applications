@@ -84,7 +84,7 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
             }
 
             if (options.mediaType === 'Game') {
-                if (options.gameSystem == 'Windows' || options.gameSystem == 'DOS') {
+                if (options.gameSystem == 'PC' || options.gameSystem == 'DOS') {
                     if (player.gameName != options.gameName) {
                         return false;
                     }

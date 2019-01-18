@@ -47,7 +47,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
 
         view.querySelector('.selectMediaType').addEventListener('change', onMediaTypeChange);
 
-        // add event listener for game type (Windows game)
+        // add event listener for game type (PC game)
         view.querySelector('.selectGameSystem').addEventListener('change', onGameSystemChange);
 
         function onMediaTypeChange(e) {
@@ -64,11 +64,11 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
             }
         }
 
-        //add function for additionnal field for windows game
+        //add function for additionnal field for PC game
         function onGameSystemChange(e) {
             var select = this;
             var GameSystem = select.value;
-            var fields = view.querySelectorAll('.windowsGame');
+            var fields = view.querySelectorAll('.PCGame');
 
             for (var i = 0, length = fields.length; i < length; i++) {
                 var fld = fields[i];
@@ -164,8 +164,8 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
             }
 
             player.gameSystem = view.querySelector('.selectGameSystem').value;
-            if (player.gameSystem == "Windows") {
-                player.gameName = view.querySelector('.selectWindowsGame').value;
+            if (player.gameSystem == "PC") {
+                player.gameName = view.querySelector('.selectPCGame').value;
             }
             if (player.gameSystem == "DOS") {
                 player.gameName = view.querySelector('.selectDosGame').value;
@@ -196,7 +196,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
                 if (value) {
                     selectGameSystem.value = player.gameSystem;
                 }
-                if (player.gameSystem == 'Windows' || player.gameSystem == 'DOS') {
+                if (player.gameSystem == 'PC' || player.gameSystem == 'DOS') {
                     onGameSystemChange.call(selectGameSystem);
                 }
             });
@@ -204,7 +204,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
 
         var apiconnexion = connectionManager.currentApiClient();
 
-        function getWindowsGames() {
+        function getPCGames() {
             var options = {};
 
             var userId = apiconnexion.getCurrentUserId();
@@ -231,18 +231,18 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
             return apiconnexion.getJSON(url);
         };
 
-        function fillWindowsGame(value) {
+        function fillPCGame(value) {
 
-            getWindowsGames().then(function (windowsGames) {
-                var selectWindowsGame = view.querySelector('.selectWindowsGame');
-                selectWindowsGame.innerHTML = windowsGames.GameTitles.map(function (g) {
+            getPCGames().then(function (PCGames) {
+                var selectPCGame = view.querySelector('.selectPCGame');
+                selectPCGame.innerHTML = PCGames.GameTitles.map(function (g) {
                     console.log(g);
                     return '<option value="' + g + '">' + g + '</option>';
 
                 }).join('');
 
                 if (value) {
-                    selectWindowsGame.value = player.gameName;
+                    selectPCGame.value = player.gameName;
                 }
             });
         }
@@ -297,7 +297,7 @@ define(['globalize', 'loading', 'appSettings', 'focusManager', 'connectionManage
             }
 
             fillGameSystem(player.gameSystem);
-            fillWindowsGame(player.gameName);
+            fillPCGame(player.gameName);
             fillDosGame(player.gameName);
         }
     };
