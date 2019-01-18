@@ -73,8 +73,8 @@ define(['events', 'appSettings', 'pluginManager', 'packageManager', 'shell', 'fi
 
         function isConfiguredToPlay(player, options) {
             console.log(options);
-            alert(player.gameSystem);
-            alert(options.gameSystem);
+            //alert(player.gameSystem);
+            //alert(options.gameSystem);
             if (!shell.canExec) {
                 return false;
             }
